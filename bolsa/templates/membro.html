@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block body_class %}pagina-cinza{% endblock %}
+
+{% block content %}
+<h1 class="titulo-sistema">Programa Bolsa Família</h1>
+<h2 class="headi">Responsável familiar: {{ familia.nome }}</h2>
+<p class="subtitulo">Cadastro familiar</p>
+
+<main class="container-pessoas">
+  {% for pessoa in pessoas %}
+    <article class="card-pessoa">
+      <h3 class="nome-pessoa">{{ pessoa.nome }}</h3>
+
+      <div class="info">
+        <span><strong>Idade:</strong> {{ pessoa.idade }}</span>
+        <span><strong>Nascimento:</strong> {{ pessoa.data_nascimento }}</span>
+        <span><strong>Altura:</strong> {{ pessoa.altura }}</span>
+        <span><strong>Peso:</strong> {{ pessoa.peso }}</span>
+        <span><strong>Vacina:</strong> {{ pessoa.vacina }}</span>
+        <span><strong>Gestante:</strong> {{ pessoa.gestante }}</span>
+      </div>
+    </article>
+  {% empty %}
+    <p>Nenhuma pessoa cadastrada</p>
+  {% endfor %}
+</main>
+
+{% endblock %}
