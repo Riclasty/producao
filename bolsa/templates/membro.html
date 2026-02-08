@@ -13,12 +13,13 @@
       <h3 class="nome-pessoa">{{ pessoa.nome }}</h3>
 
       <div class="info">
-        <span><strong>Idade:</strong> {{ pessoa.idade }}</span>
-        <span><strong>Nascimento:</strong> {{ pessoa.data_nascimento }}</span>
-        <span><strong>Altura:</strong> {{ pessoa.altura }}</span>
-        <span><strong>Peso:</strong> {{ pessoa.peso }}</span>
-        <span><strong>Vacina:</strong> {{ pessoa.vacina }}</span>
-        <span><strong>Gestante:</strong> {{ pessoa.gestante }}</span>
+        <span><strong>Idade:</strong> {{ pessoa.idade | default:"" }}</span>
+        <span><strong>Nascimento:</strong> {{ pessoa.data_nascimento | default:"" }}</span>
+        <span><strong>Altura:</strong> {{ pessoa.altura|default:"" }}</span>
+        <span><strong>Peso:</strong> {{ pessoa.peso |default:"" }}</span>
+        <span><strong>Gestante:</strong> {{ pessoa.gestante |default:"" }}</span>
+        <span><strong>Pccu:</strong> {{ pessoa.pccu |default:"" }}</span>
+        <span><strong>Data do Pccu:</strong> {{ pessoa.data_preventivo | default:"" }}</span>
       </div>
     </article>
   {% empty %}

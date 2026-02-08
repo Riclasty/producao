@@ -1,3 +1,2 @@
-.projeto/local_settings.py
-.static_files
-bolsafamilia
+projeto/local_settings.py
+static_files/
