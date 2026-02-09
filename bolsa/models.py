@@ -4,6 +4,7 @@ class Familia(models.Model):
     nome = models.CharField(max_length=50)
     nis = models.CharField(max_length= 15, null= True)
     
+    
 
     def __str__(self):
         return self.nome

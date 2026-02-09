@@ -1,34 +1,39 @@
 {% extends "base.html" %}
 
-<body>
 {% block content %}
-    <table>
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>nome</th>
-                <th>nis</th>
-            </tr>
-        </thead>
+<!-- Cabeçalho bonito -->
+<header style="background-color: #4CAF50; color: white; padding: 30px 20px; text-align: center; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h1 style="margin: 0; font-size: 2.5em;">Programa Bolsa Família</h1>
+    <p style="margin: 5px 0 0; font-size: 1.2em;">Lista de famílias cadastradas</p>
+</header>
 
-        <tbody>
-            {% for familia in familias %}
-            <tr>
-                <td>
-                    <a href="{% url 'pessoa' familia.id %}">{{ familia.id }}</a>
- </a>
-                </td>
-                <td>{{ familia.nome }}</td>
-                <td>{{ familia.nis}}</td>
+<!-- Tabela estilizada -->
+<table style="width: 90%; margin: 0 auto; border-collapse: separate; border-spacing: 0; font-size: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 10px; overflow: hidden;">
+    <thead style="background-color: #e0f2f1; color: #004d40;">
+        <tr>
+            <th style="padding: 14px; border-bottom: 2px solid #b2dfdb;">ID</th>
+            <th style="padding: 14px; border-bottom: 2px solid #b2dfdb;">NOME</t>
+            <th style="padding: 14px; border-bottom: 2px solid #b2dfdb;">NIS</th>
+            
+        </tr>
+    </thead>
 
-            </tr>
-            {% empty %}
-            <tr>
-                <td colspan="2">Nenhuma família cadastrada</td>
-            </tr>
-            {% endfor %}
-        </tbody>
+    <tbody>
+        {% for familia in familias %}
+        <tr style="text-align: center; background-color: #ffffff;">
+            <td style="padding: 12px; border-bottom: 1px solid #ddd;">
+                <a href="{% url 'pessoa' familia.id %}" style="text-decoration: none; color: #00796b; font-weight: bold;">{{ familia.id  |default:"" }}</a>
+            </td>
+            <td style="padding: 12px; border-bottom: 1px solid #ddd;">{{ familia.nome |default:""  }}</td>
+            <td style="padding: 12px; border-bottom: 1px solid #ddd;">{{ familia.nis|default:"" }}</td>
+            
 
-    </table>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3" style="text-align: center; padding: 12px; background-color: #f9f9f9;">Nenhuma família cadastrada</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock content %}
-</body>
